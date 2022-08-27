@@ -50,7 +50,7 @@ else
 		else
 			sed "s/AABBCCFFFEDDEEFF/${GATEWAY_ID}/g" /home/ft/global_conf.json.sx1250.EU868.template > /etc/global_conf.json
 			sed "s/send_port/${SEND_PORT}/g" /home/ft/global_conf.json.sx1250.EU868.template > /etc/global_conf.json
-			cd /usr/bin/ && ./sx1302_lora_pkt_fwd -c /home/ft/global_conf.json
+			cd /usr/bin/ && ./sx1302_lora_pkt_fwd -c /etc/global_conf.json
 		fi   
 		
 
