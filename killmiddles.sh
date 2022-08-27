@@ -7,3 +7,14 @@ if [[ $ptCount -gt 0 ]];
 	else
 	  echo "No current collector process"
 fi
+
+
+ptCount=$(pgrep -c bridge+)
+
+if [[ $ptCount -gt 0 ]]; 
+	then
+	  echo "Killing all bridges.."
+	  pgrep bridge+ | xargs kill
+	else
+	  echo "No current bridge process"
+fi
