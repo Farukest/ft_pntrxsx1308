@@ -12,11 +12,11 @@ cd /usr/bin && ./sx1302_test_loragw_reg
 if [ "$?" != "0" ]; then
     # Run SX1308 lora pkt fwd
     if [ "${REGION}" = "EU868" ]; then
-		count=$(pgrep -c sx1308_lora_pkt_fwd)
+		count=$(pgrep -c sx1308_lora+)
 		if [[ $count -gt 1 ]]; 
 		then
 		  echo "Killing that SX1308 pktwds.."
-		  pgrep sx1308_lora_pkt_fwd | xargs kill
+		  pgrep sx1308_lora+ | xargs kill
 		fi
 		
 		if [[ $count -eq 1 ]]; 
@@ -34,15 +34,16 @@ if [ "$?" != "0" ]; then
     else
         echo "SX1308 region error value: ${REGION}"
     fi
+	
 else
     if [ "${REGION}" = "EU868" ]; then
         # Run SX1302 lora pkt fwd
-		count=$(pgrep -c sx1302_lora_pkt_fwd)
+		count=$(pgrep -c sx1302_lora+)
 		
 		if [[ $count -gt 1 ]]; 
 		then
 		  echo "Killing that SX1302 pktwds.."
-		  pgrep sx1302_lora_pkt_fwd | xargs kill
+		  pgrep sx1302_lora+ | xargs kill
 		fi
 		
 		if [[ $count -eq 1 ]]; 
@@ -58,6 +59,7 @@ else
     else
         echo "SX1302 region error value: ${REGION}"
     fi
+	
 fi
 		    
 
