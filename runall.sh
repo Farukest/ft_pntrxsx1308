@@ -23,6 +23,7 @@ if [ "$?" != "0" ]; then
 		then 
 			echo "ALREADY RUNNING SX1308";
 		else
+			echo "PAKET STARTING";
 			sed "s/AABBCCFFFEDDEEFF/${GATEWAY_ID}/g" /home/ft/global_conf.json.sx1257.EU868.template > /etc/global_conf.json
 			sed "s/send_port/${SEND_PORT}/g" /home/ft/global_conf.json.sx1257.EU868.template > /etc/global_conf.json
 			/usr/bin/reset_lgw.sh start

@@ -1,4 +1,11 @@
-fwCount=$(pgrep -c lora_pkt_fwd+)
+cd /usr/bin && ./sx1302_test_loragw_reg
+if [ "$?" != "0" ]; then
+	echo "KILLED SX1308 ON KILLPFS"
+    fwCount=$(pgrep -c sx1308_lora_pkt_fwd+)
+else
+	echo "KILLED SX1302 ON KILLPFS"
+    fwCount=$(pgrep -c sx1302_lora_pkt_fwd+)
+fi
 
 if [[ $fwCount -gt 0 ]]; 
 	then
