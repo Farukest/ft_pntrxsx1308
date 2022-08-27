@@ -27,7 +27,7 @@ if [ "$?" != "0" ]; then
 			sed "s/AABBCCFFFEDDEEFF/${GATEWAY_ID}/g" /home/ft/global_conf.json.sx1257.EU868.template > /etc/global_conf.json
 			sed "s/send_port/${SEND_PORT}/g" /home/ft/global_conf.json.sx1257.EU868.template > /etc/global_conf.json
 			/usr/bin/reset_lgw.sh start
-			cd /usr/bin/ && ./sx1308_lora_pkt_fwd
+			cd /usr/bin/ && ./sx1308_lora_pkt_fwd &
 		fi   
 		
 	
@@ -51,7 +51,7 @@ else
 		else
 			sed "s/AABBCCFFFEDDEEFF/${GATEWAY_ID}/g" /home/ft/global_conf.json.sx1250.EU868.template > /etc/global_conf.json
 			sed "s/send_port/${SEND_PORT}/g" /home/ft/global_conf.json.sx1250.EU868.template > /etc/global_conf.json
-			cd /usr/bin/ && ./sx1302_lora_pkt_fwd -c /etc/global_conf.json
+			cd /usr/bin/ && ./sx1302_lora_pkt_fwd -c /etc/global_conf.json &
 		fi   
 		
 
